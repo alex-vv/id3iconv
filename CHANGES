@@ -1,0 +1,11 @@
+
+2/14/2004
+
+	- Bug fix: Under windows, cannot rename the output temp file to the original file name
+    - Bug fix: Conversion from v2 tag is using different encoding (big-endian UTF-16) 
+      from conversion from v1.  Now both using little-endian UTF-16 for better compatibility.
+	- Added option to force using id3v1 tag even if v2 tag exists
+	- Added option to remove v1 tag after convertion	
+	
+sometime in 2003
+	Version 0.1

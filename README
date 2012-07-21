@@ -1,0 +1,7 @@
+
+ID3iconv is a Java command line tool to convert ID3 tags to Unicode. It also 
+converts ID3v1 tags to ID3v2. 
+
+Latest information about ID3iconv, along with an FAQ, is available at 
+http://www.cs.berkeley.edu/~zf/id3iconv.
+
