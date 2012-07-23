@@ -4,6 +4,7 @@
 package net.zhoufeng;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Vector;
@@ -11,6 +12,8 @@ import java.util.Vector;
 import de.vdheide.mp3.ID3;
 import de.vdheide.mp3.ID3v2;
 import de.vdheide.mp3.ID3v2Frame;
+
+import org.apache.commons.io.FileUtils;
 
 /**
  * @author zf
@@ -68,7 +71,15 @@ public class ID3iconv {
 		info("Using source encoding: "+encoding);
 		for (int i = opt; i < args.length; i++) try {
 			info ("Converting "+args[i]);
-			encoder.convert (new File(args[i]), encoding);
+			File file = new File(args[i]);
+			if (file.isDirectory()) {
+			    Collection<File> files = FileUtils.listFiles(file, new String[] {"mp3"}, true);
+			    for (File f: files) {
+			        encoder.convert(f, encoding);
+			    }
+			} else {
+			    encoder.convert (file, encoding);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
